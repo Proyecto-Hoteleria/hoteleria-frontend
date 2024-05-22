@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importa Link desde react-router-dom
 import './navbar.css';
 import { MdOutlineTravelExplore } from 'react-icons/md';
 import { AiFillCloseCircle } from 'react-icons/ai';
@@ -19,36 +20,26 @@ export const Navbar = () => {
     <section className='navBarSection'>
       <header className='header flex'>
         <div className='logoDiv'>
-          <a href='#' className='logo flex'>
+          {/* Utiliza Link para navegar a la página Home */}
+          <Link to='/' className='logo flex'>
             <h1><MdOutlineTravelExplore className='icon' />Hoteleria.</h1>
-          </a>
+          </Link>
         </div>
         <div className={active}>
           <ul className="navLists flex">
+            {/* Utiliza Link para navegar a la página Home */}
             <li className="navItem">
-              <a href="#" className="navLink">Home</a>
+              <Link to='/' className="navLink">Login</Link>
             </li>
+            {/* Agrega un Link para navegar a la página de Hotel */}
             <li className="navItem">
-              <a href="#" className="navLink">Eventos</a>
+              <Link to='/Hotel' className="navLink">Hotel</Link>
             </li>
+            {/* Agrega un Link para navegar a la página de Login */}
             <li className="navItem">
-              <a href="#" className="navLink">Hotel</a>
+              <Link to='/Events' className="navLink">Events</Link>
             </li>
-            <li className="navItem">
-              <a href="#" className="navLink">Habitación</a>
-            </li>
-            <li className="navItem">
-              <a href="#" className="navLink">Usuarios</a>
-            </li>
-            <li className="navItem">
-              <a href="#" className="navLink">Reservas</a>
-            </li>
-            <li className="navItem">
-              <a href="#" className="navLink">Factura</a>
-            </li>
-            <button className='btn'>
-              <a href='#'>¿Buscas Algo?</a>
-            </button>
+            {/* Otros elementos del menú */}
           </ul>
           <div onClick={removeNavbar} className="closeNavbar">
             <AiFillCloseCircle className='icon' />
