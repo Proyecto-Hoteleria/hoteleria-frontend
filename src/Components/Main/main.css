@@ -1,0 +1,210 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(9, 0%, 100%);
+  --blackColor: hsl(261, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColordeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 199, 199);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(225, 225, 255);
+}
+
+.main {
+  width: 100%;
+  background-color: var(--whiteColor);
+  padding: 2rem 0;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--bodyColor);
+}
+
+.main {
+  width: 100%;
+  padding: 2rem 2rem; /* Added padding to the main container */
+  box-sizing: border-box;
+
+  .secTitle {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    .title {
+      position: relative;
+      width: max-content;
+      color: var(--PrimaryColor);
+      margin: 1rem auto;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+
+      &::after {
+        position: absolute;
+        content: '';
+        background: var(--SecondaryColor);
+        height: 5px;
+        width: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -10px;
+        border-radius: 5px;
+        z-index: -1;
+      }
+    }
+  }
+
+  .secContent {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-content: center;
+
+    .singleDestination {
+      display: flex;
+      flex-direction: column;
+      background: var(--cardBG);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+      overflow: hidden;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background: var(--cardHover);
+        box-shadow: 0 4px 8px rgba(85, 85, 114, 0.549);
+      }
+
+      .imageDiv {
+        height: 200px;
+        width: 100%;
+        overflow: hidden;
+
+        img {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.1);
+        }
+      }
+
+      .cardInfo {
+        padding: 1rem;
+
+        .destTitle {
+          color: var(--blackColor);
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .continent {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .icon {
+            color: var(--textColor);
+            font-size: 18px;
+          }
+
+          .name {
+            color: var(--textColor);
+            font-weight: 400;
+            font-size: 14px;
+          }
+        }
+
+        .fees {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1rem 0;
+          margin: 1rem 0;
+          border-top: 1.5px solid var(--greyText);
+          border-bottom: 1.5px solid var(--greyText);
+
+          .grade {
+            color: var(--textColor);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            small {
+              text-align: center;
+              background: var(--gradientColor);
+              border-radius: 1rem;
+              color: var(--whiteColor);
+              padding: 1px 10px;
+              font-size: 10px;
+            }
+          }
+
+          .price {
+            font-size: 1.5rem;
+            color: var(--blackColor);
+          }
+        }
+
+        .desc {
+          font-size: 13.5px;
+          color: var(--textColor);
+          font-weight: 500;
+        }
+
+        .btn {
+          margin-top: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 0.5rem;
+          color: var(--whiteColor);
+          font-weight: 600;
+          background: var(--PrimaryColor);
+          padding: 0.5rem 1rem;
+          border-radius: 0.5rem;
+          transition: background 0.3s ease;
+          cursor: pointer;
+
+          &:hover {
+            background: var(--SecondaryColor);
+          }
+
+          .icon {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .secContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .secContent {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 500px) {
+  .title {
+    font-size: 1.75rem;
+
+    &::after {
+      width: 155px !important;
+    }
+  }
+}

@@ -1,0 +1,182 @@
+/* navbar.css */
+
+/* Variables de color */
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --whiteColor: hsl(9, 0%, 100%);
+    --blackColor: hsl(261, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColordeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 199, 199);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+  }
+  
+  /* Estilos para el header/navbar */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--whiteColordeam);
+    width: 100%;
+    padding: 1.5rem 1rem; /* Aumentado el espacio de relleno */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.242);
+  }
+  
+  .logo {
+    color: var(--blackColor);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .icon {
+    font-size: 25px;
+    color: var(--PrimaryColor);
+    margin-right: 0.5rem; /* Ajustado el margen */
+  }
+  
+  .navBar {
+    display: none;
+  }
+  
+  .navBar.activeNavbar {
+    display: block;
+    position: absolute;
+    top: calc(100% + 0.5rem); /* Ajustado el espacio entre el header y la barra de navegación */
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--whiteColordeam);
+    border-radius: 1rem;
+    width: 80%;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+    z-index: 2000;
+  }
+  
+  .navLists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .navItem {
+    padding: 0.5rem;
+  }
+  
+  .navLink {
+    color: var(--textColor);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none; /* Quita el subrayado */
+  }
+  
+  .navLink:hover {
+    color: var(--PrimaryColor);
+  }
+  
+  .btn a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--PrimaryColor);
+    font-weight: 600;
+    border-radius: 0.2rem;
+    text-decoration: none; /* Quita el subrayado */
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .btn a:hover {
+    background-color: var(--SecondaryColor);
+  }
+  
+  .closeNavbar {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    color: var(--PrimaryColor);
+  }
+  
+  .closeNavbar:hover {
+    color: var(--SecondaryColor);
+  }
+  
+  .toggleNavbar {
+    display: block;
+  }
+  
+  .toggleNavbar .icon {
+    font-size: 25px;
+    color: var(--PrimaryColor);
+  }
+  
+  .toggleNavbar:hover .icon {
+    color: var(--SecondaryColor);
+  }
+  
+  /* Estilos para pantallas medianas (tablets y escritorios) */
+  @media screen and (min-width: 768px) {
+    .toggleNavbar,
+    .closeNavbar {
+      display: none;
+    }
+  
+    .header {
+      padding: 1.5rem 2rem; /* Aumentado el espacio de relleno */
+    }
+  
+    .navBar {
+      display: block;
+      position: relative;
+      background: none;
+      box-shadow: none;
+      width: auto;
+      padding: 0;
+    }
+  
+    .navLists {
+      flex-direction: row;
+      gap: 1.5rem; /* Aumentado el espacio entre elementos de la lista */
+    }
+  
+    .navItem .navLink {
+      color: var(--textColor);
+      padding: 0 0.5rem; /* Ajustado el espacio alrededor de los enlaces */
+      font-size: 0.9rem;
+      font-weight: 500; /* Reducido el peso de la fuente */
+    }
+  
+    .navItem .navLink:hover {
+      color: var(--PrimaryColor);
+    }
+  
+    .btn {
+      margin-left: auto; /* Coloca el botón a la derecha */
+      margin-right: 1rem; /* Aumentado el margen derecho */
+    }
+  
+    .btn a {
+      color: var(--whiteColor);
+      font-weight: 500; /* Reducido el peso de la fuente */
+    }
+  }
+  
+  /* Estilos para pantallas grandes (escritorios) */
+  @media screen and (min-width: 960px) {
+    .header {
+      padding: 1.5rem 0.5rem; /* Ajustado el espacio de relleno */
+    }
+  
+    .navLists {
+      gap: 1rem; /* Ajustado el espacio entre elementos de la lista */
+    }
+  }  
